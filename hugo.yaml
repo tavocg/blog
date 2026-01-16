@@ -52,6 +52,16 @@ menu:
         type: language-switch
         icon: translate
 
+markup:
+  # allow raw html
+  # goldmark:
+  #   renderer:
+  #     unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
 enableGitInfo: true
 params:
   navbar:
