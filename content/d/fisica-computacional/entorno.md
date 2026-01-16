@@ -1,8 +1,8 @@
-+++
-title = '1. Preparar el entorno'
-date = '2026-01-10'
-tags = ['linux']
-+++
+---
+title: '1. Preparar el entorno'
+date: '2026-01-10'
+tags: ['linux']
+---
 
 ## Descargar ISOs
 

@@ -13,15 +13,15 @@ Vim viene incluido en la mayoría de distribuciones de Linux, lo cual es muy
 conveniente porque Vim es un editor de texto que puede parecer sencillo pero es
 muy potente una vez aprendemos a utilizarlo.
 
-En la mayoría de instalaciones de `vim`, la herramienta `vimtutor` la acompaña,
-para utilizarla, escribimos en la terminal `vimtutor` y seguimos los pasos para
+En la mayoría de instalaciones de `vim`, la herramienta `vimtutor` la acompaña.
+Para utilizarla, escribimos en la terminal `vimtutor` y seguimos los pasos para
 completar las diferentes tareas que se nos presentan.
 
 Además de aprender a utilizar los atajos de este progama, podemos configurarlo
 a nuestro gusto, aquí hay una configuración sencilla que podemos aplicar
 escribiendo en el archivo `~/.config/vim/vimrc`
 
-```vim {header="~/.config/vim/vimrc"}
+```vim {filename="~/.config/vim/vimrc"}
 " Al momento de buscar (con la tecla '/'), ignorar mayúsculas y minúsculas.
 set ignorecase
 

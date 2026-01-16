@@ -1,9 +1,9 @@
-+++
-date = '2026-01-08'
-title = 'Guía de instalación de Arch Linux'
-author = 'Gustavo Calvo'
-tags = ['linux']
-+++
+---
+date: '2026-01-08'
+title: 'Guía de instalación de Arch Linux'
+tags: ['linux']
+type: docs
+---
 
 ## Bootear el entorno y preparar el sistema
 
@@ -116,7 +116,7 @@ hwclock --systohc
 
 Editar `/etc/locale.gen` y descomentar las locales requeridas, por ejemplo:
 
-```sh {header="/etc/locale.gen"}
+```sh {filename="/etc/locale.gen"}
 ...
 # es_CO.UTF-8 UTF-8
 # es_CR ISO-8859-1
@@ -134,14 +134,14 @@ locale-gen
 Crear el archivo `/etc/locale.conf` y configurar el lenguaje agregando la línea
 (o cualquier otra locale de preferencia):
 
-```sh {header="/etc/locale.conf"}
+```sh {filename="/etc/locale.conf"}
 LANG=es_CR.UTF-8
 ```
 
 > [!NOTE]
 > En caso de requerir otro keymap, persistir la configuración en `/etc/vconsole.conf`
 >
-> ```sh {header="/etc/vconsole.conf"}
+> ```sh {filename="/etc/vconsole.conf"}
 > localectl list-keymaps # Listar keymaps disponibles
 > KEYMAP=la-latin1
 > ```
@@ -150,13 +150,13 @@ LANG=es_CR.UTF-8
 
 Definir el hostname en `/etc/hostname`, escribiendo por ejemplo: `arch-pc` o el hostname deseado.
 
-```sh {header="/etc/hostname"}
+```sh {filename="/etc/hostname"}
 arch-pc
 ```
 
 Configurar `/etc/hosts`, una configuración mínima de ejemplo:
 
-```sh {header="/etc/hosts"}
+```sh {filename="/etc/hosts"}
 127.0.0.1       localhost
 127.0.1.1       arch-pc # (nombre en /etc/hostname)
 ::1             localhost
@@ -198,7 +198,7 @@ passwd root -l
 > [!NOTE]
 > En caso de habilitar encripción, editar el archivo en `/etc/mkinitcpio.conf` y agregar las siguientes HOOKS:
 >
-> ```sh {header="/etc/mkinitcpio.conf"}
+> ```sh {filename="/etc/mkinitcpio.conf"}
 > # Asegurarse que estén en este orden y antes de "filesystems" y "fsck"
 > HOOKS=(... encrypt lvm2 ...)
 > ```
@@ -216,7 +216,7 @@ Asumiento que se utiliza GRUB:
 > [!NOTE]
 > En caso de habilitar encripción, modificar esta línea en `/etc/default/grub`:
 >
-> ```sh {header="/etc/default/grub"}
+> ```sh {filename="/etc/default/grub"}
 > ...
 > # cryptdevice es crypto_LUKS y root es la partición root desencriptada
 > GRUB_CMDLINE_LINUX_DEFAULT="... cryptdevice=UUID=00000000-0000-0000-0000-000000000000:cryptlvm root=UUID=00000000-0000-0000-0000-000000000000"
@@ -261,7 +261,7 @@ Hasta la fecha actual (2024-12-27), es necesario agregar estas opciones para uti
 
 Modificar esta línea en `/etc/default/grub`
 
-```sh {header="/etc/default/grub"}
+```sh {filename="/etc/default/grub"}
 ...
 GRUB_CMDLINE_LINUX_DEFAULT="... nvidia-drm.modeset=1 nvidia_drm.fbdev=0"
 ...
@@ -269,7 +269,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="... nvidia-drm.modeset=1 nvidia_drm.fbdev=0"
 
 Agregar/Modificar esta línea en `/etc/mkinitcpio.conf`
 
-```sh {header="/etc/mkinitcpio.conf"}
+```sh {filename="/etc/mkinitcpio.conf"}
 ...
 MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 ...

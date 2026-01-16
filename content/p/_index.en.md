@@ -1,13 +1,15 @@
 ---
 title: Blog
 type: blog
-cascade:
-  type: blog
 ---
 
-{{< cards >}}
-  {{< card link="../" title="Home" icon="home" >}}
-  {{< card link="index.xml" title="RSS" icon="rss" >}}
-{{< /cards >}}
+<div style="text-align:center;margin-top:1em">
+{{< hextra/hero-badge link="index.xml" >}}
+  {{< icon name="rss" >}}
+  <span>RSS</span>
+{{< /hextra/hero-badge >}}
+</div>
 
-## Recent activity
+> "Freedom, Sancho, is one of the most precious gifts that heaven has bestowed upon men; no treasures that the earth holds buried or the sea conceals can compare with it"
+
+## Recent posts

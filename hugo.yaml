@@ -42,21 +42,30 @@ menu:
         type: link
         icon: user
 
-    - name: Search
+    - identifier: rss
+      name: RSS
+      pageRef: /p/index.xml
       weight: 3
+      params:
+        type: link
+        icon: rss
+
+    - name: Search
+      weight: 4
       params:
         type: search
 
     - name: Language Switcher
+      weight: 5
       params:
         type: language-switch
         icon: translate
 
 markup:
   # allow raw html
-  # goldmark:
-  #   renderer:
-  #     unsafe: true
+  goldmark:
+    renderer:
+      unsafe: true
 
   # enable hextra syntax highlight
   highlight:
@@ -86,3 +95,8 @@ params:
     displayTags: true
 
   displayUpdatedDate: true
+
+outputs:
+  home: [html, llms, rss]
+  page: [html, rss]
+  section: [html, rss]

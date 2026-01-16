@@ -1,9 +1,9 @@
-+++
-date = '2026-01-08'
-title = 'Arch Linux Install Guide'
-author = 'Gustavo Calvo'
-tags = ['linux']
-+++
+---
+date: '2026-01-08'
+title: 'Arch Linux Install Guide'
+tags: ['linux']
+type: docs
+---
 
 ## Booting the Environment and Preparing the System
 
@@ -117,7 +117,7 @@ hwclock --systohc
 
 Edit `/etc/locale.gen` and uncomment the required locales, for example:
 
-```sh {header="/etc/locale.gen"}
+```sh {filename="/etc/locale.gen"}
 ...
 # es_CO.UTF-8 UTF-8
 # es_CR ISO-8859-1
@@ -135,14 +135,14 @@ locale-gen
 Create the `/etc/locale.conf` file and configure the language by adding the line
 (or any other locale from `locale.gen`):
 
-```sh {header="/etc/locale.conf"}
+```sh {filename="/etc/locale.conf"}
 LANG=es_CR.UTF-8
 ```
 
 > [!NOTE]
 > Persist keyboard layout in `/etc/vconsole.conf`
 >
-> ```sh {header="/etc/vconsole.conf"}
+> ```sh {filename="/etc/vconsole.conf"}
 > localectl list-keymaps # List available keymaps
 > KEYMAP=la-latin1
 > ```
@@ -151,13 +151,13 @@ LANG=es_CR.UTF-8
 
 Define the hostname in `/etc/hostname`, for example: `arch-pc` or the desired hostname.
 
-```sh {header="/etc/hostname"}
+```sh {filename="/etc/hostname"}
 arch-pc
 ```
 
 Configure `/etc/hosts`, a minimal example configuration:
 
-```sh {header="/etc/hosts"}
+```sh {filename="/etc/hosts"}
 127.0.0.1 localhost
 127.0.1.1 arch-pc # (name in /etc/hostname)
 ::1 localhost
@@ -199,7 +199,7 @@ passwd root -l
 > [!NOTE]
 > If you enable encryption, edit the file `/etc/mkinitcpio.conf` and add the following HOOKS:
 >
-> ```sh {header="/etc/mkinitcpio.conf"}
+> ```sh {filename="/etc/mkinitcpio.conf"}
 > # Ensure they are in this order and before "filesystems" and "fsck"
 > HOOKS=(... encrypt lvm2 ...)
 > ```
@@ -217,7 +217,7 @@ Assuming GRUB is used:
 > [!NOTE]
 > If you enable encryption, modify this line in `/etc/default/grub`:
 >
-> ```sh {header="/etc/default/grub"}
+> ```sh {filename="/etc/default/grub"}
 > ...
 > # cryptdevice is crypto_LUKS and root is the decrypted root partition
 > GRUB_CMDLINE_LINUX_DEFAULT="... cryptdevice=UUID=00000000-0000-0000-0000-0000-000000000000:cryptlvm root=UUID=00000000-0000-0000-0000-0000-000000000000"
@@ -262,7 +262,7 @@ As of today (2024-12-27), it is necessary to add these options to use an Nvidia 
 
 Modify this line in `/etc/default/grub`
 
-```sh {header="/etc/default/grub"}
+```sh {filename="/etc/default/grub"}
 ...
 GRUB_CMDLINE_LINUX_DEFAULT="... nvidia-drm.modeset=1 nvidia_drm.fbdev=0"
 ...
