@@ -1,8 +1,8 @@
 ---
-title: Publicaciones
+title: Blog
 type: blog
 cascade:
-  type: docs
+  type: blog
 ---
 
 ## Actividad reciente
