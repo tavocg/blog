@@ -33,7 +33,7 @@ NOTA: En el resto de la guía, se asume que las particiones
 - `sdx1` es la partición EFI que será montada en `/boot`
 - `sdx2` será montada en `/`
 
-> [!TIP]
+> [!NOTE]
 > En caso de usar encripción:
 >
 > ```sh
@@ -57,7 +57,7 @@ mkfs.fat -F 32 /dev/sdx1
 
 ### Montar
 
-> [!TIP]
+> [!NOTE]
 > En caso de usar encripción:
 >
 > ```sh
@@ -82,7 +82,7 @@ pacstrap -K /mnt base linux linux-firmware grub sudo networkmanager efibootmgr
 pacstrap -K /mnt vim
 ```
 
-> [!TIP]
+> [!NOTE]
 > En caso de usar encripción:
 >
 > ```sh
@@ -138,7 +138,7 @@ Crear el archivo `/etc/locale.conf` y configurar el lenguaje agregando la línea
 LANG=es_CR.UTF-8
 ```
 
-> [!TIP]
+> [!NOTE]
 > En caso de requerir otro keymap, persistir la configuración en `/etc/vconsole.conf`
 >
 > ```sh {header="/etc/vconsole.conf"}
@@ -195,7 +195,7 @@ passwd root -l
 
 ### Initramfs
 
-> [!TIP]
+> [!NOTE]
 > En caso de habilitar encripción, editar el archivo en `/etc/mkinitcpio.conf` y agregar las siguientes HOOKS:
 >
 > ```sh {header="/etc/mkinitcpio.conf"}
@@ -213,7 +213,7 @@ mkinitcpio -P
 
 Asumiento que se utiliza GRUB:
 
-> [!TIP]
+> [!NOTE]
 > En caso de habilitar encripción, modificar esta línea en `/etc/default/grub`:
 >
 > ```sh {header="/etc/default/grub"}

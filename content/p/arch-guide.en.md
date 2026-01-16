@@ -34,7 +34,7 @@ NOTE: In the rest of the guide, it is assumed that the partitions are:
 
 - `sdx2` will be mounted at `/`
 
-> [!TIP]
+> [!NOTE]
 > If using encryption:
 >
 > ```sh
@@ -58,7 +58,7 @@ mkfs.fat -F 32 /dev/sdx1
 
 ### Mount
 
-> [!TIP]
+> [!NOTE]
 > If using encryption:
 >
 > ```sh
@@ -83,7 +83,7 @@ pacstrap -K /mnt base linux linux-firmware grub sudo networkmanager efibootmgr
 pacstrap -K /mnt vim
 ```
 
-> [!TIP]
+> [!NOTE]
 > If using encryption:
 >
 > ```sh
@@ -139,7 +139,7 @@ Create the `/etc/locale.conf` file and configure the language by adding the line
 LANG=es_CR.UTF-8
 ```
 
-> [!TIP]
+> [!NOTE]
 > Persist keyboard layout in `/etc/vconsole.conf`
 >
 > ```sh {header="/etc/vconsole.conf"}
@@ -196,7 +196,7 @@ passwd root -l
 
 ### Initramfs
 
-> [!TIP]
+> [!NOTE]
 > If you enable encryption, edit the file `/etc/mkinitcpio.conf` and add the following HOOKS:
 >
 > ```sh {header="/etc/mkinitcpio.conf"}
@@ -214,7 +214,7 @@ mkinitcpio -P
 
 Assuming GRUB is used:
 
-> [!TIP]
+> [!NOTE]
 > If you enable encryption, modify this line in `/etc/default/grub`:
 >
 > ```sh {header="/etc/default/grub"}
