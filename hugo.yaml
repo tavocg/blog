@@ -1,0 +1,68 @@
+baseURL: https://tavocg.github.io/blog/
+languageCode: es-la
+title: tavocg
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+defaultContentLanguage: es
+languages:
+  es:
+    languageName: Spanish
+    weight: 1
+
+  en:
+    languageName: English
+    weight: 2
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      pageRef: /p
+      weight: 1
+      params:
+        type: link
+        icon: "book-open"
+
+    - identifier: about
+      name: About
+      pageRef: /about
+      weight: 2
+      params:
+        type: link
+        icon: user
+
+    - name: Search
+      weight: 3
+      params:
+        type: search
+
+    - name: Language Switcher
+      params:
+        type: language-switch
+        icon: translate
+
+enableGitInfo: true
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: true
+
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+
+  editURL:
+    enable: false
+    base: "https://github.com/tavocg/blog/edit/main"
+
+  blog:
+    list:
+      displayTags: true
+
+  toc:
+    displayTags: true
+
+  displayUpdatedDate: true
