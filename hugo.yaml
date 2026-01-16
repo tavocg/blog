@@ -49,6 +49,8 @@ params:
   navbar:
     displayTitle: true
     displayLogo: true
+    logo:
+      path: favicon.svg
 
   footer:
     displayCopyright: true
