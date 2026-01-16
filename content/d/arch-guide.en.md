@@ -2,7 +2,6 @@
 date: '2026-01-08'
 title: 'Arch Linux Install Guide'
 tags: ['linux']
-type: docs
 ---
 
 ## Booting the Environment and Preparing the System

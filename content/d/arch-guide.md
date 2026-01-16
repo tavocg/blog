@@ -2,7 +2,6 @@
 date: '2026-01-08'
 title: 'Guía de instalación de Arch Linux'
 tags: ['linux']
-type: docs
 ---
 
 ## Bootear el entorno y preparar el sistema
