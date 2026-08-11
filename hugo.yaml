@@ -20,7 +20,7 @@ menu:
   main:
     - identifier: blog
       name: Blog
-      pageRef: /p
+      pageRef: /posts
       weight: 1
       params:
         type: link
@@ -28,7 +28,7 @@ menu:
 
     - identifier: guides
       name: Guides
-      pageRef: /d
+      pageRef: /wiki
       weight: 1
       params:
         type: link
@@ -44,7 +44,7 @@ menu:
 
     - identifier: rss
       name: RSS
-      pageRef: /p/index.xml
+      pageRef: /posts/index.xml
       weight: 3
       params:
         type: link
