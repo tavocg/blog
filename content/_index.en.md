@@ -7,8 +7,8 @@ toc: false
 > "I... a universe of atoms, an atom in the universe" 🌠
 
 {{< cards >}}
-  {{< card link="p" title="Blog" icon="calendar" >}}
-  {{< card link="d" title="Guides" icon="book-open" >}}
-  {{< card link="p/index.xml" title="RSS" icon="rss" >}}
+  {{< card link="posts" title="Blog" icon="calendar" >}}
+  {{< card link="wiki" title="Guides" icon="book-open" >}}
+  {{< card link="posts/index.xml" title="RSS" icon="rss" >}}
   {{< card link="about" title="About" icon="user" >}}
 {{< /cards >}}
