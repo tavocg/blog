@@ -1,5 +1,5 @@
 baseURL: https://tavocg.github.io/blog/
-languageCode: es-la
+locale: es-la
 title: tavocg
 
 module:
@@ -9,11 +9,11 @@ module:
 defaultContentLanguage: es
 languages:
   es:
-    languageName: Spanish
+    label: Spanish
     weight: 1
 
   en:
-    languageName: English
+    label: English
     weight: 2
 
 menu:
