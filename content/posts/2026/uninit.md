@@ -66,10 +66,10 @@ configuración en favor de la convención, es con un ejemplo. Imaginemos que
 estamos modelando datos biológicos de animales para un sistema de clasificación
 científica. No todos los animales comparten las mismas características.
 
-- Algunos tienen colmillos
-- Algunos son acuáticos
-- Algunos poseen un hábitat específico que vale la pena registrar
-- Otros simplemente no aplican a ciertas categorías
+- Algunos tienen colmillos.
+- Algunos son acuáticos.
+- Algunos poseen un hábitat específico que vale la pena registrar.
+- Otros simplemente no aplican a ciertas categorías.
 
 En Go, podemos expresar este modelo de forma directa:
 
@@ -159,7 +159,7 @@ func Validate(a Animal) error {
 
 ### Ejemplo en Python
 
-Veamos la contraparte en un lenguaje popularmente utilizado por ser sencillo:
+Veamos la contraparte en un lenguaje popularmente utilizado por ser "sencillo":
 
 ```py
 class Animal:
@@ -192,9 +192,9 @@ if worm.habitat is None:
 
 A pesar de que:
 
-- Debimos declarar explícitamente valores por defecto
-- Los consumidores del objeto deben comprobar None
-- Mayor verbosidad y comprobaciones adicionales en comparación con Go
+- Debimos declarar explícitamente valores por defecto.
+- Los consumidores del objeto deben comprobar None.
+- Mayor verbosidad y comprobaciones adicionales en comparación con Go.
 
 ...todavía mantiene la ventaja de que, puestos estos límites, es difícil
 incluso crear métodos que vayan a resultar en excepciones o en manejo
@@ -203,6 +203,6 @@ innecesario de errores.
 Si en el futuro se agregan nuevos campos, cada constructor y cada llamada deben
 actualizarse. Mientras que en la implementación previa en Go basta con agregar
 a la estructura de datos el atributo deseado, por ejemplo, agregando
-`shell_hardness float64` a la definición del struct, por defecto todas las
+`ShellHardness float64` a la definición del struct, por defecto todas las
 instancias de `Animal` tendrán una dureza de caparazón de 0, que se puede
 agregar a instancias previas o nuevas de este tipo.
