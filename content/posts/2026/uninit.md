@@ -4,13 +4,22 @@ date: '2026-01-18'
 tags: ['golang']
 ---
 
-El concepto de inicialización es prácticamente un dogma, y en muchos casos innecesario. Con esto no quiero decir que prefiero comportamiento indefinido, sino que la _[Convención sobre configuración](https://rubyonrails.org/doctrine/es#convention-over-configuration)_ es una filosofía poderosa que ahorra líneas de código sin necesidad de perder control sobre el comportamiento de un programa.
+El concepto de inicialización es prácticamente un dogma, y en muchos casos
+innecesario. Con esto no quiero decir que prefiero comportamiento indefinido,
+sino que la _[Convención sobre configuración][convencion-config]_
+es una filosofía poderosa que ahorra líneas de código sin necesidad de perder
+control sobre el comportamiento de un programa.
+
+[convencion-config]: https://rubyonrails.org/doctrine/es
 
 ## Zero values
 
-Por supuesto, no cualquier lenguaje se presta para esta filosofía. Golang aplica este concepto en forma del concepto de [Zero values](https://go.dev/tour/basics/12). Por definición:
+Por supuesto, no cualquier lenguaje se presta para esta filosofía. Golang aplica
+este concepto a través de los [zero values](https://go.dev/tour/basics/12).
+Por definición:
 
-> Variables declared without an explicit initial value are given their zero value.
+> Variables declared without an explicit initial value are given their zero
+> value.
 
 <br>
 <div align="center">
@@ -23,7 +32,8 @@ Por supuesto, no cualquier lenguaje se presta para esta filosofía. Golang aplic
 
 </div>
 
-Esto aplica también para los tipos cuyo tipo subyacente es alguno de los anteriormente mencionados, por ejemplo:
+Esto aplica también para los tipos cuyo tipo subyacente es alguno de los
+anteriormente mencionados, por ejemplo:
 
 ```go
 type CtxKey string
@@ -36,13 +46,12 @@ func foo() {
 }
 ```
 
-Además, agregando que datos de tipo slice se inicializan como el slice del mismo tipo sin elementos. Todo esto en la práctica significa que:
+Todo esto en la práctica significa que:
 
 ```go
 func main() {
 	// será inicializado como:
 	var i int       // 0
-	var f []float64 // []
 	var b bool      // false
 	var s string    // ""
 	fmt.Printf("%v %v %v %q\n", i, f, b, s)
@@ -52,7 +61,10 @@ func main() {
 
 ## Implicaciones
 
-La mejor manera de comprender por qué este comportamiento nos ahorra configuración en favor de la convención, es con un ejemplo. Imaginemos que estamos modelando datos biológicos de animales para un sistema de clasificación científica. No todos los animales comparten las mismas características.
+La mejor manera de comprender por qué este comportamiento nos ahorra
+configuración en favor de la convención, es con un ejemplo. Imaginemos que
+estamos modelando datos biológicos de animales para un sistema de clasificación
+científica. No todos los animales comparten las mismas características.
 
 - Algunos tienen colmillos
 - Algunos son acuáticos
@@ -64,12 +76,13 @@ En Go, podemos expresar este modelo de forma directa:
 ```go
 type Animal struct {
 	Name       string
-	IsActuatic bool
+	IsAquatic bool
 	Habitat    string
 }
 ```
 
-Ahora podemos crear instancias parciales sin ningún tipo de inicialización explícita
+Ahora podemos crear instancias parciales sin ningún tipo de inicialización
+explícita:
 
 ```go
 elephant := Animal{
@@ -82,12 +95,13 @@ worm := Animal{
 }
 ```
 
-Notar que no existen valores inválidos, por ejemplo, si luego queremos comprobar si un animal tiene colmillos o no:
+Notar que no existen valores inválidos, por ejemplo, si luego queremos
+comprobar si un animal tiene colmillos o no:
 
 ```go
 // Nunca declaramos que la lombriz fuera o no acuática
-if worm.IsActuatic {
-  // Animal actuático
+if worm.IsAquatic {
+  // Animal acuático
 }
 ```
 
@@ -95,7 +109,7 @@ De la misma forma, si queremos ver el hábitat del animal en un reporte generado
 
 ```go
 func Report(a Animal) {
-  fmt.Printf("REPORTE\nNombre: %s\nAcuático: %v\nHábitat: %s\n", a.Name, a.IsActuatic, a.Habitat)
+  fmt.Printf("REPORTE\nNombre: %s\nAcuático: %v\nHábitat: %s\n", a.Name, a.IsAquatic, a.Habitat)
 
   // ...o si queremos omitir irrelevantes
 
@@ -106,7 +120,7 @@ func Report(a Animal) {
   // Name:
   fmt.Printf("Nombre: %s\n", a.Name)
 
-  if a.IsActuatic {
+  if a.IsAquatic {
     fmt.Printf("Acuático: sí\n")
   }
 
@@ -116,13 +130,17 @@ func Report(a Animal) {
 }
 ```
 
-De esta manera, podemos ver reportes de animales que incluyen exclusivamente los datos que requerimos, esto es útil porque podemos configurar cómo queremos manejar los datos sin necesidad de manejar errores o excepciones. Además, si se requiere manejo explícito de alguna condición se puede manejar sin necesidad de "contaminar" el resto.
+De esta manera, podemos ver reportes de animales que incluyen exclusivamente
+los datos que requerimos, esto es útil porque podemos configurar cómo queremos
+manejar los datos sin necesidad de manejar errores o excepciones. Además, si se
+requiere manejo explícito de alguna condición se puede manejar sin necesidad de
+"contaminar" el resto.
 
 ```go
 // Caso en el que necesitamos definir un valor por defecto
-func Report(a Animal) {
+func ReportWithDefaults(a Animal) {
   // ...
-  if a.Habitat != "" {
+  if a.Habitat == "" {
     fmt.Printf("Hábitat: desconocido\n")
   }
   // ...
@@ -130,9 +148,9 @@ func Report(a Animal) {
 
 // Caso en el que necesitamos obligatoriamente un error,
 // pero únicamente en el caso en el que el nombre está vacío
-func Report(a Animal) error {
+func Validate(a Animal) error {
   // ...
-  if a.Name != "" {
+  if a.Name == "" {
     return fmt.Errorf("empty name")
   }
   // ...
@@ -141,18 +159,18 @@ func Report(a Animal) error {
 
 ### Ejemplo en Python
 
-Veamos la contraparte en un lenguaje popularmente utilizado por ser sencillo
+Veamos la contraparte en un lenguaje popularmente utilizado por ser sencillo:
 
 ```py
 class Animal:
     def __init__(
         self,
         name,
-        is_acuatic=False,
+        is_aquatic=False,
         habitat=None,
     ):
         self.name = name
-        self.is_acuatic = is_acuatic
+        self.is_aquatic = is_aquatic
         self.habitat = habitat
 
 # ...
@@ -168,7 +186,7 @@ worm = Animal(
 
 # ...
 
-if animal.habitat is None:
+if worm.habitat is None:
     habitat = "desconocido"
 ```
 
@@ -178,6 +196,13 @@ A pesar de que:
 - Los consumidores del objeto deben comprobar None
 - Mayor verbosidad y comprobaciones adicionales en comparación con Go
 
-...todavía mantiene la ventaja de que puestos estos rodines es difícil hasta crear métodos que vayan a resultar en exceptiones o en manejo innecesario de errores.
+...todavía mantiene la ventaja de que, puestos estos límites, es difícil
+incluso crear métodos que vayan a resultar en excepciones o en manejo
+innecesario de errores.
 
-Si en el futuro se agregan nuevos campos, cada constructor y llamada debe actualizarse. Mientras que en la implementación previa en Go basta con agregar a la estructura de datos el atributo deseado, por ejemplo, agregando `shell_hardness float64` a la definición del struct, y por defecto todas las instancias de `Animal` tendrán dureza de caparazón 0, la cual se puede agregar a instancias previas o nuevas de las instancias de este tipo.
+Si en el futuro se agregan nuevos campos, cada constructor y cada llamada deben
+actualizarse. Mientras que en la implementación previa en Go basta con agregar
+a la estructura de datos el atributo deseado, por ejemplo, agregando
+`shell_hardness float64` a la definición del struct, por defecto todas las
+instancias de `Animal` tendrán una dureza de caparazón de 0, que se puede
+agregar a instancias previas o nuevas de este tipo.
