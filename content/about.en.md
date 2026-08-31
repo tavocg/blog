@@ -1,16 +1,21 @@
 ---
-title: Gustavo Calvo
+title: "About"
 toc: false
 ---
 
-<div style="text-align:center;margin-top:-3em">
-{{< hextra/hero-badge link="../pgp.txt" >}}
-  {{< icon name="key" >}}
-  <span>PGP</span>
-{{< /hextra/hero-badge >}}
+<div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center">
+  <div style="width:20rem">
+    <img src="/blog/avatar.jpg">
+  </div>
+  <div style="width:20rem">
+    <h2>Gustavo Calvo</h2>
+    <blockquote>I... a universe of atoms, an atom in the universe 🌠</blockquote>
+    <div style="text-align:center;margin-top:1rem">
+      {{< badge content="VCF" color="blue" icon="user" link="/blog/contact.vcf" >}}
+      {{< badge content="PGP" color="blue" icon="key" link="/blog/pgp.txt" >}}
+    </div>
+  </div>
 </div>
-
-> "I... a universe of atoms, an atom in the universe" 🌠
 
 ## Social
 
