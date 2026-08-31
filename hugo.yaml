@@ -42,14 +42,6 @@ menu:
         type: link
         icon: user
 
-    - identifier: rss
-      name: RSS
-      pageRef: /posts/index.xml
-      weight: 3
-      params:
-        type: link
-        icon: rss
-
     - name: Search
       weight: 4
       params:
