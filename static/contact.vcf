@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:4.0
+FN:Gustavo Calvo
+N:Calvo;Gustavo;;;
+EMAIL;TYPE=internet:tavo@tavo.cr
+URL:https://www.tavo.cr
+X-SOCIALPROFILE;TYPE=github:https://github.com/tavocg
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/tavocg
+KEY;MEDIATYPE=application/pgp-keys:https://www.tavo.cr/pgp.txt
+PHOTO:https://www.tavo.cr/contact.vcf
+END:VCARD
