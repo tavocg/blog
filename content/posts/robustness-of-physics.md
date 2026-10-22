@@ -6,6 +6,12 @@ summary: 'La física como mecanismo de búsqueda de la verdad'
 draft: true
 ---
 
+> "Un buen marco teórico es aquel capaz de producir hechos y observaciones que
+> también puedan ser reconocidos y explicados fuera de su propio
+> marco". — Luke Smith[^fragility-of-physics]
+
+[^fragility-of-physics]: Luke Smith, "The Fragility of Physics", Luke Smith's Webpage, consultado el 10 de agosto de 2026, [lukesmith.xyz/articles/the-fragility-of-physics](https://lukesmith.xyz/articles/the-fragility-of-physics/). Traducción propia.
+
 ## Vistazo de la mecánica clásica
 
 <figure>
@@ -66,10 +72,6 @@ explicarlo desde los puntos de vista de los 3 formalismos
 -->
 
 ## Compatibilidad de marcos teóricos
-
-> "Un buen marco teórico es aquel capaz de producir hechos y observaciones que también puedan ser reconocidos y explicados fuera de su propio marco".[^fragility-of-physics]
-
-[^fragility-of-physics]: Luke Smith, "The Fragility of Physics", Luke Smith's Webpage, consultado el 10 de agosto de 2026, [lukesmith.xyz/articles/the-fragility-of-physics](https://lukesmith.xyz/articles/the-fragility-of-physics/). Traducción propia.
 
 <!--
 Ejemplos como péndulo simple u órbitas planetarias
